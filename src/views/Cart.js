@@ -11,8 +11,9 @@ export function Cart() {
 
     const dates = document.createElement('section');
     const dateOfArrival = cartManager.getArrivalDate();
+    const dateOfDeparture = cartManager.getDepartureDate();
 
-    section.innerHTML =`Data przyjazdu: ${dateOfArrival}`
+    section.innerHTML =`Data przyjazdu: ${dateOfArrival} Data wyjazdu: ${dateOfDeparture}`
 
     const table = document.createElement('table');
     table.classList.add('table');

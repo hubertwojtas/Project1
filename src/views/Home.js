@@ -10,14 +10,17 @@ export function Home() {
     section.innerHTML = `
         <h2>Home</h2>
         <p>Witaj w IT SPA. Każdy programista lubi u nas odpoczywać.</p>
-        Kiedy przyjeżdżasz? <input id="date-of-arrival" name="date-of-arrival"/><br/>
+        Kiedy przyjeżdżasz? <input type = "date" id="date-of-arrival" /><br/>
+        Kiedy wyjeżdżasz? <input type = "date" id="date-of-departure" /><br/>
     `;
 
     section.append(Button({
             text: 'Zapisz',
             onClick: () => {
-                const arrivalInput = document.getElementById("date-of-arrival")
+                const arrivalInput = document.getElementById("date-of-arrival");
+                const departureInput = document.getElementById("date-of-departure");
                 cartManager.saveArrivalDate(arrivalInput.value);
+                cartManager.saveDepartureDate(departureInput.value);
             }
         })
     )
