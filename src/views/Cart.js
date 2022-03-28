@@ -9,6 +9,11 @@ export function Cart() {
         <p>Oto zawartość Twojego koszyka.</p>
     `;
 
+    const dates = document.createElement('section');
+    const dateOfArrival = cartManager.getArrivalDate();
+
+    section.innerHTML =`Data przyjazdu: ${dateOfArrival}`
+
     const table = document.createElement('table');
     table.classList.add('table');
 
@@ -43,7 +48,7 @@ export function Cart() {
     `;
 
     table.append(tableHead, ...tableRows, tableFooter);
-    section.append(table);
+    section.append(dates, table);
 
     return section;
 }
