@@ -1,0 +1,15 @@
+body {
+background-color: cadetblue;
+padding: 2rem;
+
+}
+
+.btn-active {
+    background-color: yellowgreen;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background-color: yellowgreen;
+    }
+}
