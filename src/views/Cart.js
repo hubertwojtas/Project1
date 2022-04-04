@@ -14,7 +14,11 @@ export function Cart() {
   const dateOfDeparture = cartManager.getDepartureDate();
   const stayDays = ((Date.parse(dateOfDeparture) - Date.parse(dateOfArrival))/86400000);
 
-  section.innerHTML = `Data przyjazdu: ${dateOfArrival} Data wyjazdu: ${dateOfDeparture} Planowany pobyt: ${stayDays} dni.`;
+  if (dateOfArrival == "" || dateOfDeparture == "") {
+    section.innerHTML = 'Wybierz datę pobytu.';
+  } else {
+    section.innerHTML = `Data przyjazdu: ${dateOfArrival} Data wyjazdu: ${dateOfDeparture} Planowany pobyt: ${stayDays} dni.`
+  }
 
   const table = document.createElement("table");
   table.classList.add("table");
@@ -41,14 +45,15 @@ export function Cart() {
   });
 
   
-  const totalPrice = cartManager.getTotal().toFixed(2);
+  const totalPrice = (cartManager.getTotal() * stayDays).toFixed(2);
+ 
 
   const tableFooter = document.createElement("tr");
   tableFooter.innerHTML = `
         <td></td>
        
         <td>
-            <strong>${totalPrice}PLN</strong>
+            <strong>${totalPrice} PLN</strong>
         </td>
         <td></td>
     `;
