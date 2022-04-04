@@ -21,6 +21,8 @@ export function Home() {
       onClick: () => {
         const arrivalInput = document.getElementById("date-of-arrival");
         const departureInput = document.getElementById("date-of-departure");
+
+        
         cartManager.saveArrivalDate(arrivalInput.value);
         cartManager.saveDepartureDate(departureInput.value);
       },
