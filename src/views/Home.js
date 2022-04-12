@@ -15,20 +15,30 @@ export function Home() {
         Kiedy wyjeżdżasz? <input type = "date" id="date-of-departure" /><br/>
     `;
 
+  
   section.append(
     Button({
       text: "Zapisz",
+      classes:"btn btn-outline-light text-dark",
       onClick: () => {
         const arrivalInput = document.getElementById("date-of-arrival");
         const departureInput = document.getElementById("date-of-departure");
 
-        
+        if (new Date(arrivalInput.value) < new Date().setHours(0)) {
+          alert(`Wprowadzony czas pobytu jest nieprawidłowy`);
+          arrivalInput.value = new Date();
+          //departureInput.value = new Date();
+        } else if (new Date(arrivalInput.value) >= new Date(departureInput.value)) {
+          alert(`Data przyjazdu powinna być wcześniejsza od daty wyjazdu.`);
+          departureInput.value = new Date();
+        } else {
         cartManager.saveArrivalDate(arrivalInput.value);
         cartManager.saveDepartureDate(departureInput.value);
+            }
       },
     })
   );
-  
+ 
   section.append(img);
 
   return section;
