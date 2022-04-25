@@ -4,7 +4,7 @@ import { Button } from "../common/Button";
 export function Home() {
   const section = document.createElement("section");
   const img = document.createElement("img");
-  img.src = require("../assets/support.png");
+  img.src = require("../assets/img.png");
   img.style.width = "50vw";
   img.style.position = "right";
 
