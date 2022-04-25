@@ -17,7 +17,7 @@ export function Cart() {
   if (dateOfArrival == "" || dateOfDeparture == "") {
     section.innerHTML = 'Wybierz datę pobytu.';
   } else {
-    section.innerHTML = `Data przyjazdu: ${dateOfArrival} Data wyjazdu: ${dateOfDeparture} Planowany pobyt: ${stayDays} dni.`
+    section.innerHTML = `Data przyjazdu: ${dateOfArrival} Data wyjazdu: ${dateOfDeparture} <strong>Planowany pobyt: ${stayDays} dni.</strong>`
   }
 
   const table = document.createElement("table");
@@ -26,7 +26,8 @@ export function Cart() {
   const tableHead = document.createElement("tr");
   tableHead.innerHTML = `
         <th>Name</th>
-        <th>Price</th>
+        <th>Cena za dzień</th>
+        <th>Cena pobytu</th>
         <th></th>
     `;
 
@@ -36,6 +37,7 @@ export function Cart() {
     tr.innerHTML = `
             <td>${item.name}</td>
             <td>${item.price.toFixed(2)} PLN</td>
+            <td>${(item.price * stayDays).toFixed(2)} PLN</td>
             <td></td>
         `;
 
@@ -52,6 +54,7 @@ export function Cart() {
   tableFooter.innerHTML = `
         <td></td>
        
+        <td>
         <td>
             <strong>${totalPrice} PLN</strong>
         </td>

@@ -4,16 +4,16 @@ import { Button } from "../common/Button";
 export function Home() {
   const section = document.createElement("section");
   const img = document.createElement("img");
+  const br = document.createElement("br")
   img.src = require("../assets/img.png");
-  img.style.width = "50vw";
-  img.style.position = "right";
-
-
+  img.style.width = "20vw";
+  section.style.textAlign = "center";
+  
   section.innerHTML = `
         <h2 class="text-center">Witaj w IT SPA!</h2>
         <h3 class="text-center">Każdy programista lubi u nas odpoczywać!</h3><br/>
         Przyjazd <input type = "date" id="date-of-arrival" />
-        Wyjazd <input type = "date" id="date-of-departure" /><br/><br/>
+        Wyjazd <input type = "date" id="date-of-departure" />
     `;
   
   section.append(
@@ -33,11 +33,13 @@ export function Home() {
         } else {
         cartManager.saveArrivalDate(arrivalInput.value);
         cartManager.saveDepartureDate(departureInput.value);
+        alert("Wybrano czas pobytu! Przeglądaj pokoje.");
             } 
       },
     })
   );
 
+section.append(br);
 section.append(img);
 
 return section;
