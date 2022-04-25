@@ -7,13 +7,15 @@ export function Home() {
   const br = document.createElement("br")
   img.src = require("../assets/img.png");
   img.style.width = "20vw";
+  img.style.marginBottom = "200px";
+  img.style.marginTop = "20px";
   section.style.textAlign = "center";
   
   section.innerHTML = `
         <h2 class="text-center">Witaj w IT SPA!</h2>
         <h3 class="text-center">Każdy programista lubi u nas odpoczywać!</h3><br/>
-        Przyjazd <input type = "date" id="date-of-arrival" />
-        Wyjazd <input type = "date" id="date-of-departure" />
+        <strong>Przyjazd</strong> <input type = "date" id="date-of-arrival" />
+        <strong>Wyjazd</strong> <input type = "date" id="date-of-departure" />
     `;
   
   section.append(
