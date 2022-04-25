@@ -1,15 +1,19 @@
 body {
 background-color: cadetblue;
 padding: 2rem;
-
 }
 
 .btn-active {
     background-color: yellowgreen;
-
     &:active,
     &:focus,
     &:hover {
         background-color: yellowgreen;
     }
+}
+
+div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
 }
