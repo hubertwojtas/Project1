@@ -6,7 +6,7 @@ export function RemoveFromCartButton(item) {
 
     return Button({
         text: '🗑️',
-        classes: 'btn',
+        classes: 'btn btn-outline-light text-dark',
         onClick: () => {
             cartManager.removeItem(item);
             

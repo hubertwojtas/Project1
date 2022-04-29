@@ -49,7 +49,6 @@ export const cartManager = {
     }
   },
 
-
   saveArrivalDate(date) {
     localStorage.setItem("DATE_OF_ARRIVAL", date);
   },
@@ -65,6 +64,4 @@ export const cartManager = {
   getDepartureDate() {
     return localStorage.getItem("DATE_OF_DEPARTURE");
   },
-
-
 };

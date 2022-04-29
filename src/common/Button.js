@@ -1,7 +1,7 @@
 export function Button(options) {
     const {
         text = '',
-        classes = '',
+        classes = 'btn btn-outline-light text-dark',
         onClick = () => {}
     } = options;
 
