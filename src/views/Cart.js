@@ -27,9 +27,9 @@ export function Cart() {
   const tableHead = document.createElement("tr");
   tableHead.innerHTML = `
         <th>Name</th>
-        <th>Cena za dzień</th>
-        <th>Koszt pobytu</th>
-        <th>Usuń</th>
+        <th>Cena za jeden dzień</th>
+        <th>Całkowity koszt pobytu</th>
+        <th>Usuń pozycję</th>
         <th></th>
     `;
 
