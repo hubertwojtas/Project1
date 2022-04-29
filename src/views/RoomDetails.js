@@ -3,7 +3,7 @@ import { RoomsList } from './RoomsList';
 
 const backButton = Button({
     text: 'Back',
-    classes: 'btn btn-primary',
+    classes: 'btn btn-outline-light text-dark',
     onClick: () => {
         const customEvent = new CustomEvent('navigate', {
             detail: RoomsList
