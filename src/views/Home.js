@@ -11,6 +11,8 @@ export function Home() {
   img.style.marginTop = "20px";
   section.style.textAlign = "center";
 
+  
+
   section.innerHTML = `
         <h2 class="text-center">Witaj w IT SPA!</h2>
         <h3 class="text-center">Każdy programista lubi u nas odpoczywać!</h3><br/>
@@ -25,7 +27,7 @@ export function Home() {
       onClick: () => {
         const arrivalInput = document.getElementById("date-of-arrival");
         const departureInput = document.getElementById("date-of-departure");
-
+        
         if (new Date(arrivalInput.value) < new Date().setHours(0)) {
           alert(`Wprowadzony czas pobytu jest nieprawidłowy`);
           arrivalInput.value = new Date();

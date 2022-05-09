@@ -14,8 +14,12 @@ export function Cart() {
   const dateOfDeparture = cartManager.getDepartureDate();
   const stayDays =
     (Date.parse(dateOfDeparture) - Date.parse(dateOfArrival)) / 86400000;
+  if (isNaN(stayDays) == true) {
+      console.log(stayDays)
+  }
+  
 
-  if (dateOfArrival == "" || dateOfDeparture == "") {
+  if (dateOfArrival == "" || dateOfDeparture == "" || dateOfArrival == null || dateOfDeparture == null) {
     section.innerHTML = "Wybierz datę pobytu.";
   } else {
     section.innerHTML = `<strong>Data przyjazdu: ${dateOfArrival} Data wyjazdu: ${dateOfDeparture} Planowany pobyt: ${stayDays} dni.</strong>`;
@@ -39,7 +43,8 @@ export function Cart() {
     tr.innerHTML = `
             <td>${item.name}</td>
             <td>${item.price.toFixed(2)} PLN</td>
-            <td>${(item.price * stayDays).toFixed(2)} PLN</td>
+            <td>${(item.price * stayDays).toFixed(2)}  
+              PLN</td>
             <td></td>
         `;
 
