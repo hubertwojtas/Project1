@@ -14,12 +14,10 @@ export function Cart() {
   const dateOfDeparture = cartManager.getDepartureDate();
   const stayDays =
     (Date.parse(dateOfDeparture) - Date.parse(dateOfArrival)) / 86400000;
-  if (isNaN(stayDays) == true) {
-      console.log(stayDays)
-  }
+ 
   
 
-  if (dateOfArrival == "" || dateOfDeparture == "" || dateOfArrival == null || dateOfDeparture == null) {
+  if (!dateOfArrival || !dateOfDeparture) {
     section.innerHTML = "Wybierz datę pobytu.";
   } else {
     section.innerHTML = `<strong>Data przyjazdu: ${dateOfArrival} Data wyjazdu: ${dateOfDeparture} Planowany pobyt: ${stayDays} dni.</strong>`;
@@ -40,10 +38,17 @@ export function Cart() {
   const tableRows = cartManager.getAllItems().map((item) => {
     const tr = document.createElement("tr");
 
+    let stayPrice = (item.price * stayDays);
+    if (isNaN(stayPrice)) {
+      stayPrice = "-";
+    } else {
+      stayPrice = stayPrice.toFixed(2);
+    }
+
     tr.innerHTML = `
             <td>${item.name}</td>
             <td>${item.price.toFixed(2)} PLN</td>
-            <td>${(item.price * stayDays).toFixed(2)}  
+            <td>${(stayPrice)}  
               PLN</td>
             <td></td>
         `;
@@ -53,7 +58,12 @@ export function Cart() {
     return tr;
   });
 
-  const totalPrice = (cartManager.getTotal() * stayDays).toFixed(2);
+  let totalPrice = (cartManager.getTotal() * stayDays);
+  if (isNaN(totalPrice)) {
+    totalPrice = "-";
+  } else {
+    totalPrice = totalPrice.toFixed(2);
+  }
 
   const tableFooter = document.createElement("tr");
   tableFooter.innerHTML = `
